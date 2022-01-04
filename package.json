@@ -5,7 +5,9 @@
   "main": "serverless.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "AWS_REGION=ap-northeast-2 sls offline",
+    "deploy:dev": "cat ./credentials.json | GOOGLE_SERVICE_ACCOUNT_JWT=$(</dev/stdin) NODE_ENV=dev sls deploy --stage dev"
   },
   "engines": {
     "node": ">=14.15.0"
