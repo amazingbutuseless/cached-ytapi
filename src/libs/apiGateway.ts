@@ -13,6 +13,7 @@ export const formatJSONResponse = (response: Record<string, unknown>, origin, st
     headers: {
       'Access-Control-Allow-Origin': allowedOrigins.includes(origin) ? origin : allowedOrigins[0],
       'Access-Control-Allow-Methods': 'OPTIONS,GET',
+      'Access-Control-Allow-Credentials': true,
     },
   };
 };
