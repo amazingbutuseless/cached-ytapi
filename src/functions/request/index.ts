@@ -8,6 +8,7 @@ export default {
         method: 'get',
         path: '/{type}/{id}',
         cors: true,
+        private: true,
         request: {
           parameters: {
             paths: {
@@ -15,9 +16,6 @@ export default {
               id: true,
             },
           },
-        },
-        authorizer: {
-          type: 'aws_iam',
         },
       },
     },

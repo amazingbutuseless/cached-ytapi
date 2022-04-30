@@ -2,12 +2,16 @@ import type { AWS } from '@serverless/typescript';
 
 import request from '@functions/request';
 
+const apiKeyNames = '${env:API_KEY_NAMES}';
+
 const serverlessConfiguration: AWS = {
   service: 'cached-ytapi',
 
   frameworkVersion: '2',
 
   plugins: ['serverless-esbuild', 'serverless-offline', 'serverless-dotenv-plugin'],
+
+  useDotenv: true,
 
   provider: {
     name: 'aws',
@@ -19,6 +23,8 @@ const serverlessConfiguration: AWS = {
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
+
+      apiKeys: apiKeyNames.split(','),
     },
 
     environment: {
