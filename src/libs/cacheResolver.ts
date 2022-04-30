@@ -47,7 +47,7 @@ export class PlaylistItemCacheResolver extends CacheResolver {
   async getDataFromApi(etag?: string): Promise<Record<string, unknown>> {
     const options: youtube_v3.Params$Resource$Playlistitems$List & { headers?: Record<string, string> } = {
       part: ['snippet', 'contentDetails'],
-      maxResults: 50,
+      maxResults: 48,
       playlistId: this.id,
       pageToken: this.pageToken,
     };
